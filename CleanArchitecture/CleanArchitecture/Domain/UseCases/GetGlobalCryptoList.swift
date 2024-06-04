@@ -7,7 +7,11 @@
 
 import Foundation
 
-class GetGlobalCryptoList {
+protocol GetGlobalCryptoListType {
+    func execute() async -> Result<[Cryptocurrency], CryptocurrencyDomainError>
+}
+
+class GetGlobalCryptoList: GetGlobalCryptoListType {
     private let repository: GlobalCryptoListRepositoryType
     
     init(repository: GlobalCryptoListRepositoryType) {
