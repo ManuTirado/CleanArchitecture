@@ -8,6 +8,11 @@
 import Foundation
 
 enum HTTPClientError: Error {
+    case generic
     case clientError
     case serverError
+    case parsingError
+    case badUrl
+    case responseError
+    case tooManyRequests
 }
