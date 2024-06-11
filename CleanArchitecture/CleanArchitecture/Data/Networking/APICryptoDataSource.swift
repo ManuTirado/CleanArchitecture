@@ -24,7 +24,9 @@ class APICryptoDataSource: ApiDataSourceType {
             return .failure(handleError(error: result.failureValue as? HTTPClientError))
         }
         
-        guard let symbolList = try? JSONDecoder().decode(CryptocurrencyGlobalInfoDTO.self, from: data) else { return .failure(.parsingError) }
+        guard let symbolList = try? JSONDecoder().decode(CryptocurrencyGlobalInfoDTO.self, from: data) else {
+            return .failure(.parsingError)
+        }
         return .success(symbolList.data.cryptocurrencies.map({ $0.key }))
     }
     
@@ -37,7 +39,9 @@ class APICryptoDataSource: ApiDataSourceType {
             return .failure(handleError(error: result.failureValue as? HTTPClientError))
         }
         
-        guard let cryptoList = try? JSONDecoder().decode([CryptocurrencyBasicDTO].self, from: data) else { return .failure(.parsingError) }
+        guard let cryptoList = try? JSONDecoder().decode([CryptocurrencyBasicDTO].self, from: data) else {
+            return .failure(.parsingError)
+        }
         return .success(cryptoList)
     }
     
@@ -60,7 +64,10 @@ class APICryptoDataSource: ApiDataSourceType {
             return .failure(handleError(error: result.failureValue as? HTTPClientError))
         }
 
-        guard let cryptoList = try? JSONDecoder().decode([String : CryptocurrencyPriceInfoDTO].self, from: data) else { return .failure(.parsingError) }
+        guard let cryptoList = try? JSONDecoder().decode(CryptocurrencyPriceInfoResponseDTO.self, from: data).cryptos else {
+            return .failure(.parsingError)
+        }
+        
         return .success(cryptoList)
     }
     

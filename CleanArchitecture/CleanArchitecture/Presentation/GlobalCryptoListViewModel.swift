@@ -49,7 +49,6 @@ class GlobalCryptoListViewModel: ObservableObject {
             Task { @MainActor in
                 isLoading = false
                 self.cryptos = cryptocurrencies
-                print("cryptos: \(cryptocurrencies)")
             }
         }
     }
