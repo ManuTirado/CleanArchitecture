@@ -9,6 +9,11 @@ import Foundation
 
 class CryptocurrencyDomainErrorMapper {
     func map(error: HTTPClientError?) -> CryptocurrencyDomainError {
-        return .generic
+        switch error {
+        case .tooManyRequests:
+            return .tooManyRequests
+        default:
+            return .generic
+        }
     }
 }

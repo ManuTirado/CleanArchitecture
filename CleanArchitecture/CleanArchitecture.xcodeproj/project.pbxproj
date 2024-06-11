@@ -38,6 +38,9 @@
 		FA76C7152C0E517C00BEF9FE /* Foundation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76C7142C0E517C00BEF9FE /* Foundation+Extensions.swift */; };
 		FAFEBB932C18C78500B88C9D /* DynamicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFEBB922C18C78500B88C9D /* DynamicKey.swift */; };
 		FAFEBB952C18C7A000B88C9D /* CryptocurrencyPriceInfoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFEBB942C18C7A000B88C9D /* CryptocurrencyPriceInfoResponseDTO.swift */; };
+		FAFEBB972C18C99000B88C9D /* CryptoListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFEBB962C18C99000B88C9D /* CryptoListItemView.swift */; };
+		FAFEBB992C18D9EE00B88C9D /* CryptocurrencyPresentableErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFEBB982C18D9EE00B88C9D /* CryptocurrencyPresentableErrorMapper.swift */; };
+		FAFEBB9B2C18DA2000B88C9D /* CryptoListPresentableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFEBB9A2C18DA2000B88C9D /* CryptoListPresentableItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +77,9 @@
 		FA76C7142C0E517C00BEF9FE /* Foundation+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Extensions.swift"; sourceTree = "<group>"; };
 		FAFEBB922C18C78500B88C9D /* DynamicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicKey.swift; sourceTree = "<group>"; };
 		FAFEBB942C18C7A000B88C9D /* CryptocurrencyPriceInfoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyPriceInfoResponseDTO.swift; sourceTree = "<group>"; };
+		FAFEBB962C18C99000B88C9D /* CryptoListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListItemView.swift; sourceTree = "<group>"; };
+		FAFEBB982C18D9EE00B88C9D /* CryptocurrencyPresentableErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyPresentableErrorMapper.swift; sourceTree = "<group>"; };
+		FAFEBB9A2C18DA2000B88C9D /* CryptoListPresentableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListPresentableItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				FA430CE62C0FAA6F00B8B531 /* GlobalCryptoListViewModel.swift */,
+				FAFEBB982C18D9EE00B88C9D /* CryptocurrencyPresentableErrorMapper.swift */,
+				FAFEBB9A2C18DA2000B88C9D /* CryptoListPresentableItem.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -117,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				FA430CE92C0FAB6300B8B531 /* GlobalCryptoListView.swift */,
+				FAFEBB962C18C99000B88C9D /* CryptoListItemView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -336,6 +345,7 @@
 				FA430CDA2C0FA49F00B8B531 /* HTTPMethod.swift in Sources */,
 				FA76C6E52C0E3EB500BEF9FE /* ContentView.swift in Sources */,
 				FA430CEA2C0FAB6300B8B531 /* GlobalCryptoListView.swift in Sources */,
+				FAFEBB9B2C18DA2000B88C9D /* CryptoListPresentableItem.swift in Sources */,
 				FA76C7022C0E427600BEF9FE /* CryptocurrencyRepository.swift in Sources */,
 				FAFEBB952C18C7A000B88C9D /* CryptocurrencyPriceInfoResponseDTO.swift in Sources */,
 				FA76C6F42C0E3F9C00BEF9FE /* Cryptocurrency.swift in Sources */,
@@ -360,7 +370,9 @@
 				FA430CE72C0FAA6F00B8B531 /* GlobalCryptoListViewModel.swift in Sources */,
 				FA76C7122C0E513B00BEF9FE /* CryptocurrencyDomainErrorMapper.swift in Sources */,
 				FA76C6E32C0E3EB500BEF9FE /* CleanArchitectureApp.swift in Sources */,
+				FAFEBB992C18D9EE00B88C9D /* CryptocurrencyPresentableErrorMapper.swift in Sources */,
 				FA76C7102C0E511700BEF9FE /* CryptocurrencyBuilder.swift in Sources */,
+				FAFEBB972C18C99000B88C9D /* CryptoListItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

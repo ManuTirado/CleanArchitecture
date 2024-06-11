@@ -9,4 +9,5 @@ import Foundation
 
 enum CryptocurrencyDomainError: Error {
     case generic
+    case tooManyRequests
 }

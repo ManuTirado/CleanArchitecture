@@ -16,25 +16,58 @@ struct GlobalCryptoListView: View {
     }
     
     var body: some View {
+        content
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .onAppear {
+                viewModel.getCryptos()
+            }
+            .refreshable {
+                viewModel.getCryptos()
+            }
+    }
+    
+    @ViewBuilder
+    var content: some View {
         VStack {
-            if viewModel.isLoading {
-                ProgressView()
+            if let errorMsg = viewModel.errorMessage {
+                VStack(spacing: 24) {
+                    Text(errorMsg)
+                        .font(.system(size: 16, weight: .bold))
+                        .foregroundStyle(.black)
+                    Button {
+                        viewModel.getCryptos()
+                    } label: {
+                        Text("RETRY")
+                            .font(.system(size: 18, weight: .bold))
+                            .foregroundStyle(.black)
+                            .padding(14)
+                            .background(.cyan)
+                            .clipShape(Capsule())
+                    }
+                }
             } else {
-                List {
-                    ForEach(viewModel.cryptos, id: \.id) { crypto in
-                        Text(crypto.name)
+                VStack {
+                    if viewModel.isLoading {
+                        ProgressView()
+                    } else {
+                        if viewModel.cryptos.count > 0 {
+                            List {
+                                ForEach(viewModel.cryptos, id: \.id) { crypto in
+                                    CryptoListItemView(item: crypto)
+                                }
+                            }
+                        } else {
+                            Text("No items to show")
+                                .font(.title)
+                                .foregroundStyle(.black)
+                        }
                     }
                 }
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.red)
-        .onAppear {
-            viewModel.onAppear()
-        }
     }
 }
 
-//#Preview {
-//    GlobalCryptoListView()
-//}
+#Preview {
+    GlobalCryptoListView(viewModel: .preview)
+}

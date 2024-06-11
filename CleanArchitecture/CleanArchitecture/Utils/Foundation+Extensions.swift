@@ -17,3 +17,10 @@ extension Result {
         }
     }
 }
+
+extension Double {
+    func toCurrency() -> Double {
+        let divisor = pow(10.0, 2.0)
+        return (self * divisor).rounded() / divisor
+    }
+}
