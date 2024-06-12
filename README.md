@@ -1,7 +1,9 @@
 # CleanArchitecture
 Project to practice the use of clean architecture with the course of "Said Rehouni - iOS Dev"
-"https://www.youtube.com/watch?v=nILL3UXrMS0&ab_channel=SaidRehouni-iOSDev"
 
+- Use cases:
+    - Get Global Crypto List
+    - Get Price History
 
 - ENTITIES:
     - Cryptocurrency
@@ -12,6 +14,10 @@ Project to practice the use of clean architecture with the course of "Said Rehou
         - Price24h
         - Volume24h
         - MarketCap
-
-- Use cases:
-    - Get Global Crypto List
+    
+    - CryptocurrencyPriceHistory
+        - Prices
+    
+    - DataPoint
+        - Price
+        - Date

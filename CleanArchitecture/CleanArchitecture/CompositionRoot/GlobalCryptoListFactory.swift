@@ -9,7 +9,7 @@ import Foundation
 
 class GlobalCryptoListFactory {
     static func create() -> GlobalCryptoListView {
-        return GlobalCryptoListView(viewModel: self.createViewModel())
+        return GlobalCryptoListView(viewModel: self.createViewModel(), createCryptoDetailView: CryptoDetailFactory())
     }
     
     private static func createViewModel() -> GlobalCryptoListViewModel {

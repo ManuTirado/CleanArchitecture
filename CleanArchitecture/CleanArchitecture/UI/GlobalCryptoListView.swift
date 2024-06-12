@@ -10,20 +10,24 @@ import SwiftUI
 struct GlobalCryptoListView: View {
     
     @ObservedObject private var viewModel: GlobalCryptoListViewModel
+    private let createCryptoDetailView: CreateCryptoDetailView
     
-    init(viewModel: GlobalCryptoListViewModel) {
+    init(viewModel: GlobalCryptoListViewModel, createCryptoDetailView: CreateCryptoDetailView) {
         self.viewModel = viewModel
+        self.createCryptoDetailView = createCryptoDetailView
     }
     
     var body: some View {
-        content
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .onAppear {
-                viewModel.getCryptos()
-            }
-            .refreshable {
-                viewModel.getCryptos()
-            }
+        NavigationStack {
+            content
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .onAppear {
+                    viewModel.getCryptos()
+                }
+                .refreshable {
+                    viewModel.getCryptos()
+                }
+        }
     }
     
     @ViewBuilder
@@ -53,7 +57,11 @@ struct GlobalCryptoListView: View {
                         if viewModel.cryptos.count > 0 {
                             List {
                                 ForEach(viewModel.cryptos, id: \.id) { crypto in
-                                    CryptoListItemView(item: crypto)
+                                    NavigationLink {
+                                        createCryptoDetailView.create()
+                                    } label: {
+                                        CryptoListItemView(item: crypto)
+                                    }
                                 }
                             }
                         } else {
@@ -69,5 +77,5 @@ struct GlobalCryptoListView: View {
 }
 
 #Preview {
-    GlobalCryptoListView(viewModel: .preview)
+    GlobalCryptoListView(viewModel: .preview, createCryptoDetailView: CryptoDetailFactory())
 }
